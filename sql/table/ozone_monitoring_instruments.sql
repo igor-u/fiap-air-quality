@@ -1,0 +1,15 @@
+CREATE TABLE ozone_monitoring_instruments (
+    "DEVICE_ID" INT,
+    "MODEL" VARCHAR(30),
+    "STATUS" VARCHAR(30),
+    "AREA" VARCHAR(30),
+    "ORBIT_HEIGHT_KM" NUMBER,
+    "NO2_10E15_MOLECULES/CM²" NUMBER,
+    "SO2_10E15_MOLECULES/CM²" NUMBER,
+    "BRO_10E15 MOLECULES/CM²" NUMBER,
+    "HCHO_10E15_MOLECULES/CM²" NUMBER,
+    "AEROSOL_AOD" NUMBER
+    );
+    
+ALTER TABLE ozone_monitoring_instruments
+ADD CONSTRAINT pk_ozone_monitoring_instruments PRIMARY KEY ("DEVICE_ID");
