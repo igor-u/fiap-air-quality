@@ -1,5 +1,9 @@
 ## Monitoramento da Qualidade do Ar em PL/SQL
 
+<p align="center">
+  <img src="air_quality_plsql.png" alt="Air Quality PL/SQL" />
+</p>
+
 Este projeto tem como objetivo simular o monitoramento da qualidade do ar em determinada região, coletando dados de sensores e armazenando-os em um banco de dados Oracle. São gerados logs para alertar sobre possíveis problemas.
 
 Os logs foram configurados como se fossem e-mails, considerando a falta de privilégio no banco de dados para fazer envios reais, utilizando pacotes como UTL_MAIL ou UTL_SMTP.
