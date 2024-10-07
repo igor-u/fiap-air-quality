@@ -1,5 +1,5 @@
 CREATE TABLE ozone_monitoring_instruments (
-    "DEVICE_ID" INT,
+    "DEVICE_ID" INT DEFAULT SEQ_AIR_MONITORING_DEVICE_ID.nextval,
     "MODEL" VARCHAR(30),
     "STATUS" VARCHAR(30),
     "AREA" VARCHAR(30),
