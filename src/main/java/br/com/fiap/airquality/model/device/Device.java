@@ -2,6 +2,7 @@ package br.com.fiap.airquality.model.device;
 
 import jakarta.persistence.*;
 
+@MappedSuperclass
 public abstract class Device {
 
     @Id
