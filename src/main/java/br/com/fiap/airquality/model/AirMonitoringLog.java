@@ -3,7 +3,7 @@ package br.com.fiap.airquality.model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "air_monitoring_logs")
@@ -27,6 +27,6 @@ public class AirMonitoringLog {
     private String text;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date time;
+    private Timestamp time;
 
 }
