@@ -13,11 +13,7 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAirMonitoringDeviceId")
     @SequenceGenerator(name = "seqAirMonitoringDeviceId", sequenceName = "SEQ_AIR_MONITORING_DEVICE_ID", allocationSize = 1)
     @Column(name = "device_id")
-    @Getter
     private Long deviceId;
-
-    @Transient
-    private Device device;
 
     private String model;
 
@@ -27,4 +23,3 @@ public class Device {
     private AirMonitoringStation station;
 
 }
-
