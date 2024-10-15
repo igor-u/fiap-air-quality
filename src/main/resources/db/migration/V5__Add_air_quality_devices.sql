@@ -1,8 +1,3 @@
-CREATE SEQUENCE "SEQ_AIR_MONITORING_DEVICE_ID"
-    START WITH 1
-    NOCACHE
-    NOCYCLE;
-
 CREATE TABLE air_quality_sensors (
     "DEVICE_ID" INTEGER DEFAULT SEQ_AIR_MONITORING_DEVICE_ID.nextval,
     "MODEL" VARCHAR2(30),
@@ -16,7 +11,10 @@ CREATE TABLE air_quality_sensors (
     );
 
 ALTER TABLE air_quality_sensors
-ADD CONSTRAINT pk_air_quality_sensors PRIMARY KEY ("DEVICE_ID");
+ADD (
+CONSTRAINT pk_air_quality_sensors PRIMARY KEY ("DEVICE_ID"),
+CONSTRAINT fk_air_quality_sensors_devices FOREIGN KEY ("DEVICE_ID") REFERENCES devices("DEVICE_ID")
+);
 
 CREATE TABLE gas_leak_detectors (
     "DEVICE_ID" INTEGER DEFAULT SEQ_AIR_MONITORING_DEVICE_ID.nextval,
@@ -33,7 +31,10 @@ CREATE TABLE gas_leak_detectors (
     );
 
 ALTER TABLE gas_leak_detectors
-ADD CONSTRAINT pk_gas_leak_detectors PRIMARY KEY ("DEVICE_ID");
+ADD (
+CONSTRAINT pk_gas_leak_detectors PRIMARY KEY ("DEVICE_ID"),
+CONSTRAINT fk_gas_leak_detectors_devices FOREIGN KEY ("DEVICE_ID") REFERENCES devices("DEVICE_ID")
+);
 
 CREATE TABLE ozone_monitoring_instruments (
     "DEVICE_ID" INTEGER DEFAULT SEQ_AIR_MONITORING_DEVICE_ID.nextval,
@@ -49,4 +50,7 @@ CREATE TABLE ozone_monitoring_instruments (
     );
 
 ALTER TABLE ozone_monitoring_instruments
-ADD CONSTRAINT pk_ozone_monitoring_instruments PRIMARY KEY ("DEVICE_ID");
+ADD (
+CONSTRAINT pk_ozone_monitoring_instruments PRIMARY KEY ("DEVICE_ID"),
+CONSTRAINT fk_ozone_monitoring_instruments_devices FOREIGN KEY ("DEVICE_ID") REFERENCES devices("DEVICE_ID")
+);

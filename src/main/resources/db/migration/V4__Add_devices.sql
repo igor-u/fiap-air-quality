@@ -1,0 +1,17 @@
+CREATE SEQUENCE "SEQ_AIR_MONITORING_DEVICE_ID"
+    START WITH 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE TABLE devices (
+    "DEVICE_ID" INTEGER,
+    "MODEL" VARCHAR2(50),
+    "STATUS" VARCHAR2(50),
+    "STATION" INTEGER
+    );
+
+ALTER TABLE devices
+ADD (
+CONSTRAINT pk_devices PRIMARY KEY ("DEVICE_ID"),
+CONSTRAINT fk_devices_air_monitoring_stations FOREIGN KEY ("STATION") REFERENCES air_monitoring_stations("STATION_ID")
+)

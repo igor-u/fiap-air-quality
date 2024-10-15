@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.model;
+package br.com.fiap.airquality.model.monitor;
 
 
 import jakarta.persistence.*;

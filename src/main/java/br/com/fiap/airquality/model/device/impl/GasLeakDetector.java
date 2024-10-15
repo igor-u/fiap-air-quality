@@ -1,9 +1,9 @@
-package br.com.fiap.airquality.model.device;
+package br.com.fiap.airquality.model.device.impl;
 
+import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "gas_leak_detectors")
+@Entity(name = "gas_leak_detectors")
 public class GasLeakDetector extends Device {
 
     @Column(name = "CO2_PPM")

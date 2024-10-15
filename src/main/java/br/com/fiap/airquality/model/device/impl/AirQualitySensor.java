@@ -1,9 +1,9 @@
-package br.com.fiap.airquality.model.device;
+package br.com.fiap.airquality.model.device.impl;
 
+import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "air_quality_sensors")
+@Entity(name = "air_quality_sensors")
 public class AirQualitySensor extends Device {
 
     private Double aqi;

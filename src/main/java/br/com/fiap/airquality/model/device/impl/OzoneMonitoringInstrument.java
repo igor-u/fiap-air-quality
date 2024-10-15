@@ -1,9 +1,9 @@
-package br.com.fiap.airquality.model.device;
+package br.com.fiap.airquality.model.device.impl;
 
+import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "ozone_monitoring_instruments")
+@Entity(name = "ozone_monitoring_instruments")
 public class OzoneMonitoringInstrument extends Device {
 
     @Column(name = "orbit_height_km")
