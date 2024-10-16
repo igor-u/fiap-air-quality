@@ -2,12 +2,14 @@ package br.com.fiap.airquality.model.monitor;
 
 import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "air_monitoring_stations")
+@Getter
 public class AirMonitoringStation {
 
     @Id
@@ -17,10 +19,10 @@ public class AirMonitoringStation {
     private Long id;
 
     @OneToMany
-    public Set<Device> devices = new HashSet<>();
+    private Set<Device> devices = new HashSet<>();
 
-    public String country;
+    private String country;
 
-    public String city;
+    private String city;
 
 }

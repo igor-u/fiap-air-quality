@@ -2,12 +2,14 @@ package br.com.fiap.airquality.model.device.impl;
 
 import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
+import lombok.Setter;
 
 @Entity(name = "air_quality_sensors")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Setter
 public class AirQualitySensor extends Device {
 
-    public Double aqi;
+    private Double aqi;
 
     @Column(name = "temperature_celsius")
     private Double temperatureCelsius;

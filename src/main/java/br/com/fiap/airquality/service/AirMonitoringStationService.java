@@ -29,8 +29,7 @@ public class AirMonitoringStationService {
         Optional<AirMonitoringStation> station = airMonitoringStationRepository.findById(stationId);
         Optional<Device> device = deviceRepository.findById(deviceId);
 
-        station.get().devices.add(device.get());
-        //device.get().station = station.get();
+        station.get().getDevices().add(device.get());
 
         return station.get();
 

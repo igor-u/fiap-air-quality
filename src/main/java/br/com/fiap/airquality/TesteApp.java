@@ -20,9 +20,9 @@ public class TesteApp {
         entityManager.persist(airMonitoringStation);
 
         AirQualitySensor airQualitySensor = new AirQualitySensor();
-        airQualitySensor.aqi = 100.;;
+        airQualitySensor.setAqi(100.);
 
-        airMonitoringStation.devices.add(airQualitySensor);
+        airMonitoringStation.getDevices().add(airQualitySensor);
 
         entityManager.persist(airQualitySensor);
 
