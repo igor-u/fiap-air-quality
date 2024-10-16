@@ -4,6 +4,7 @@ import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
 
 @Entity(name = "ozone_monitoring_instruments")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class OzoneMonitoringInstrument extends Device {
 
     @Column(name = "orbit_height_km")

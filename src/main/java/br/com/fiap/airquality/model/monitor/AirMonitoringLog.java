@@ -12,19 +12,21 @@ public class AirMonitoringLog {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAirMonitoringLogId")
     @SequenceGenerator(name = "seqAirMonitoringLogId", sequenceName = "SEQ_AIR_MONITORING_LOG_ID", allocationSize = 1)
-    @Column(name = "log_id")
-    private Long logId;
+    @Column(name = "id")
+    private Long Id;
 
     @Column(name = "device_id")
     private Long deviceId;
 
-    private String from;
+    @Column(name = "from_email")
+    private String fromEmail;
 
-    private String to;
+    @Column(name = "to_email")
+    private String toEmail;
 
     private String subject;
 
-    private String text;
+    private String message;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp time;

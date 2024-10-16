@@ -1,25 +1,20 @@
 package br.com.fiap.airquality.model.device;
 
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import jakarta.persistence.*;
-import lombok.Getter;
 
-@Entity
-@Table(name = "devices_info")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Device {
+@Entity(name = "devices")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Device {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAirMonitoringDeviceId")
     @SequenceGenerator(name = "seqAirMonitoringDeviceId", sequenceName = "SEQ_AIR_MONITORING_DEVICE_ID", allocationSize = 1)
-    @Column(name = "device_id")
-    private Long deviceId;
+    @Column(name = "id")
+    private Long id;
 
     private String model;
 
+    @Enumerated(EnumType.STRING)
     private DeviceStatus status;
-
-    @ManyToOne
-    private AirMonitoringStation station;
 
 }

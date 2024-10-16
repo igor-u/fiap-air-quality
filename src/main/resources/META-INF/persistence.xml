@@ -7,11 +7,14 @@
     <persistence-unit name="air-quality" transaction-type="RESOURCE_LOCAL">
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
 
             <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:${URL}" />
             <property name="javax.persistence.jdbc.user" value="${USER}" />
             <property name="javax.persistence.jdbc.password" value="${PASSWORD}" />
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
 
         </properties>
 

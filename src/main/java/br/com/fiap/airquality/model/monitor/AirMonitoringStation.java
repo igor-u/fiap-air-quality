@@ -11,16 +11,16 @@ import java.util.Set;
 public class AirMonitoringStation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAirMonitoringDeviceId")
-    @SequenceGenerator(name = "seqAirMonitoringDeviceId", sequenceName = "SEQ_AIR_MONITORING_DEVICE_ID", allocationSize = 1)
-    @Column(name = "station_id")
-    private Long stationId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAirMonitoringStationId")
+    @SequenceGenerator(name = "seqAirMonitoringStationId", sequenceName = "SEQ_AIR_MONITORING_STATION_ID", allocationSize = 1)
+    @Column(name = "id")
+    private Long id;
 
     @OneToMany
-    private Set<Device> devices = new HashSet<>();
+    public Set<Device> devices = new HashSet<>();
 
-    private String country;
+    public String country;
 
-    private String city;
+    public String city;
 
 }
