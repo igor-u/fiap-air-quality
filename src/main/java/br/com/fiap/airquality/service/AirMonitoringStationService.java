@@ -25,11 +25,14 @@ public class AirMonitoringStationService {
         return airMonitoringStationRepository.save(airMonitoringStation);
     }
 
-    public AirMonitoringStation setDevice(Long stationId, Long deviceId) {
+    public AirMonitoringStation addDevice(Long stationId, Long deviceId) {
         Optional<AirMonitoringStation> station = airMonitoringStationRepository.findById(stationId);
         Optional<Device> device = deviceRepository.findById(deviceId);
 
-        station.get().getDevices().add(device.get());
+        station
+                .orElseThrow()
+                .getDevices()
+                .add(device.orElseThrow());
 
         return station.get();
 

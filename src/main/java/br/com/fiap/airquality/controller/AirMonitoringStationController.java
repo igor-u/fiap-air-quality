@@ -24,10 +24,10 @@ public class AirMonitoringStationController {
         return airMonitoringStationService.createStation(airMonitoringStation);
     }
 
-    @PatchMapping("/station/setDevice")
+    @PatchMapping("/station/addDevice")
     @Transactional
-    public AirMonitoringStation setAirQualitySensor(@RequestParam Long stationId, @RequestParam Long deviceId) {
-        return airMonitoringStationService.setDevice(stationId, deviceId);
+    public AirMonitoringStation addDevice(@RequestParam Long stationId, @RequestParam Long deviceId) {
+        return airMonitoringStationService.addDevice(stationId, deviceId);
     }
 
 }
