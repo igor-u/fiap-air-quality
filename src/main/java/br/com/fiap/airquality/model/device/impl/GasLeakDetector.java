@@ -2,9 +2,13 @@ package br.com.fiap.airquality.model.device.impl;
 
 import br.com.fiap.airquality.model.device.Device;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity(name = "gas_leak_detectors")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Getter
+@Setter
 public class GasLeakDetector extends Device {
 
     @Column(name = "CO2_PPM")

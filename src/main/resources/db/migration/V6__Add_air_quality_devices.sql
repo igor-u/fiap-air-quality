@@ -10,7 +10,7 @@ CREATE TABLE air_quality_sensors (
 ALTER TABLE air_quality_sensors
 ADD (
 CONSTRAINT pk_air_quality_sensors PRIMARY KEY ("ID"),
-CONSTRAINT fk_air_quality_sensors_devices FOREIGN KEY ("ID") REFERENCES devices("ID")
+CONSTRAINT fk_air_quality_sensors_devices FOREIGN KEY ("ID") REFERENCES devices
 );
 
 CREATE TABLE gas_leak_detectors (
@@ -27,7 +27,7 @@ CREATE TABLE gas_leak_detectors (
 ALTER TABLE gas_leak_detectors
 ADD (
 CONSTRAINT pk_gas_leak_detectors PRIMARY KEY ("ID"),
-CONSTRAINT fk_gas_leak_detectors_devices FOREIGN KEY ("ID") REFERENCES devices("ID")
+CONSTRAINT fk_gas_leak_detectors_devices FOREIGN KEY ("ID") REFERENCES devices
 );
 
 CREATE TABLE ozone_monitoring_instruments (
@@ -43,5 +43,5 @@ CREATE TABLE ozone_monitoring_instruments (
 ALTER TABLE ozone_monitoring_instruments
 ADD (
 CONSTRAINT pk_ozone_monitoring_instruments PRIMARY KEY ("ID"),
-CONSTRAINT fk_ozone_monitoring_instruments_devices FOREIGN KEY ("ID") REFERENCES devices("ID")
+CONSTRAINT fk_ozone_monitoring_instruments_devices FOREIGN KEY ("ID") REFERENCES devices
 );

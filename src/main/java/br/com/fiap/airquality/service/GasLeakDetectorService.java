@@ -1,22 +1,22 @@
 package br.com.fiap.airquality.service;
 
-import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
+import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
 import br.com.fiap.airquality.repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AirQualitySensorService {
+public class GasLeakDetectorService {
 
     private final DeviceRepository deviceRepository;
 
     @Autowired
-    public AirQualitySensorService(DeviceRepository deviceRepository) {
+    public GasLeakDetectorService(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
     }
 
-    public AirQualitySensor createDevice(AirQualitySensor airQualitySensor) {
-        return deviceRepository.save(airQualitySensor);
+    public GasLeakDetector createDevice(GasLeakDetector gasLeakDetector) {
+        return deviceRepository.save(gasLeakDetector);
     }
 
 }

@@ -1,9 +1,13 @@
 package br.com.fiap.airquality.model.device;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity(name = "devices")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Getter
+@Setter
 public abstract class Device {
 
     @Id

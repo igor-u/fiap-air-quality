@@ -2,6 +2,7 @@ package br.com.fiap.airquality.controller;
 
 import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.service.AirQualitySensorService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,8 @@ public class AirQualitySensorController {
         this.airQualitySensorService = airQualitySensorService;
     }
 
-    @PostMapping("/sensor")
+    @PostMapping("/air_quality_sensor")
+    @Transactional
     public AirQualitySensor createDevice(@RequestBody AirQualitySensor airQualitySensor) {
         return airQualitySensorService.createDevice(airQualitySensor);
     }
