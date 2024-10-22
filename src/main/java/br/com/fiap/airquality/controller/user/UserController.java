@@ -1,7 +1,7 @@
-package br.com.fiap.airquality.controller;
+package br.com.fiap.airquality.controller.user;
 
 import br.com.fiap.airquality.model.user.User;
-import br.com.fiap.airquality.service.UserService;
+import br.com.fiap.airquality.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,9 @@
-package br.com.fiap.airquality.service;
+package br.com.fiap.airquality.service.monitor;
 
 import br.com.fiap.airquality.model.device.Device;
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
-import br.com.fiap.airquality.repository.AirMonitoringStationRepository;
-import br.com.fiap.airquality.repository.DeviceRepository;
+import br.com.fiap.airquality.repository.monitor.AirMonitoringStationRepository;
+import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

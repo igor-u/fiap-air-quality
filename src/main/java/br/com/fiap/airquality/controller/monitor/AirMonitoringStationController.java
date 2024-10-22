@@ -1,7 +1,7 @@
-package br.com.fiap.airquality.controller;
+package br.com.fiap.airquality.controller.monitor;
 
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
-import br.com.fiap.airquality.service.AirMonitoringStationService;
+import br.com.fiap.airquality.service.monitor.AirMonitoringStationService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

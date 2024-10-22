@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.controller;
+package br.com.fiap.airquality.controller.monitor;
 
 import org.springframework.web.bind.annotation.RestController;
 

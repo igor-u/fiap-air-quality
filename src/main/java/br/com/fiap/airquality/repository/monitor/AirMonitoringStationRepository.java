@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.repository;
+package br.com.fiap.airquality.repository.monitor;
 
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import org.springframework.data.jpa.repository.JpaRepository;

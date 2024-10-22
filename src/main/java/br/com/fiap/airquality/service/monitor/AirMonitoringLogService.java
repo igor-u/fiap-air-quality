@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.service;
+package br.com.fiap.airquality.service.monitor;
 
 import org.springframework.stereotype.Service;
 

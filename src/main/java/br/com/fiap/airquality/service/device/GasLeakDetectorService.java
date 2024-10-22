@@ -1,7 +1,7 @@
-package br.com.fiap.airquality.service;
+package br.com.fiap.airquality.service.device;
 
 import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
-import br.com.fiap.airquality.repository.DeviceRepository;
+import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

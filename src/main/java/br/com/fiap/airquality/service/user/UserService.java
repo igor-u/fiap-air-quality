@@ -1,7 +1,7 @@
-package br.com.fiap.airquality.service;
+package br.com.fiap.airquality.service.user;
 
 import br.com.fiap.airquality.model.user.User;
-import br.com.fiap.airquality.repository.UserRepository;
+import br.com.fiap.airquality.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
