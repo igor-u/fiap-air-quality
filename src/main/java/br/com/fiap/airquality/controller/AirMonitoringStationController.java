@@ -1,6 +1,5 @@
 package br.com.fiap.airquality.controller;
 
-import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.service.AirMonitoringStationService;
 import jakarta.transaction.Transactional;
@@ -24,7 +23,7 @@ public class AirMonitoringStationController {
         return airMonitoringStationService.createStation(airMonitoringStation);
     }
 
-    @PatchMapping("/station/addDevice")
+    @PatchMapping("/station/add_device")
     @Transactional
     public AirMonitoringStation addDevice(@RequestParam Long stationId, @RequestParam Long deviceId) {
         return airMonitoringStationService.addDevice(stationId, deviceId);

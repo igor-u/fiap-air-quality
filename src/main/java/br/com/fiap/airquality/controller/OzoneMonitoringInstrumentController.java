@@ -1,8 +1,6 @@
 package br.com.fiap.airquality.controller;
 
-import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.model.device.impl.OzoneMonitoringInstrument;
-import br.com.fiap.airquality.service.AirQualitySensorService;
 import br.com.fiap.airquality.service.OzoneMonitoringInstrumentService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
