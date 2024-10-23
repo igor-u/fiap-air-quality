@@ -1,6 +1,8 @@
 package br.com.fiap.airquality.controller.user;
 
 import br.com.fiap.airquality.model.user.User;
+import br.com.fiap.airquality.model.user.dto.ShowUserDTO;
+import br.com.fiap.airquality.model.user.dto.SignUpUserDTO;
 import br.com.fiap.airquality.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,18 +19,18 @@ public class UserController {
 
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
-    public User salvar(@RequestBody User user){
-        return userService.createUser(user);
+    public ShowUserDTO salvar(@RequestBody SignUpUserDTO signUpUserDTO){
+        return userService.createUser(signUpUserDTO);
     }
 
     @GetMapping("/user")
     @ResponseStatus(HttpStatus.OK)
-    public List<User> findAll(){
+    public List<ShowUserDTO> findAll(){
         return userService.findAll();
     }
 
     @GetMapping("/user/{id}")
-    public User findById(@PathVariable Long id){
+    public ShowUserDTO findById(@PathVariable Long id){
         return userService.findById(id);
     }
 
@@ -40,7 +42,7 @@ public class UserController {
 
     @PutMapping("/user")
     @ResponseStatus(HttpStatus.OK)
-    public User update(@RequestBody User user){
+    public ShowUserDTO update(@RequestBody User user){
         return userService.update(user);
     }
 
