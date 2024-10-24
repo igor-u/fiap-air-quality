@@ -26,7 +26,8 @@ public class SecurityConfigurations {
                         .authorizeHttpRequests(authorize -> {
                             authorize.requestMatchers(HttpMethod.GET).permitAll();
                             authorize.requestMatchers(HttpMethod.POST, "/auth/register").permitAll();
-                            authorize.requestMatchers(HttpMethod.POST).hasRole("ADMIN");
+                            authorize.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
+                            authorize.requestMatchers(HttpMethod.POST, "/air_quality").hasRole("ADMIN");
                             authorize.requestMatchers(HttpMethod.PATCH).hasRole("ADMIN");
                             authorize.requestMatchers(HttpMethod.PUT).hasRole("ADMIN");
                             authorize.requestMatchers(HttpMethod.DELETE).hasRole("ADMIN");

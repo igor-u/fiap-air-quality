@@ -19,7 +19,7 @@ public class AirMonitoringStationController {
 
     @PostMapping("/station")
     @Transactional
-    public AirMonitoringStation create(@RequestBody AirMonitoringStation airMonitoringStation) {
+    public AirMonitoringStation createStation(@RequestBody AirMonitoringStation airMonitoringStation) {
         return airMonitoringStationService.createStation(airMonitoringStation);
     }
 

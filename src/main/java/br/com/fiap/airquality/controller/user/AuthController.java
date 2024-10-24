@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.controller.user;
 
+import br.com.fiap.airquality.model.user.dto.LoginDTO;
 import br.com.fiap.airquality.model.user.dto.ShowUserDTO;
 import br.com.fiap.airquality.model.user.dto.SignUpUserDTO;
 import br.com.fiap.airquality.service.user.UserService;
@@ -23,11 +24,11 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid SignUpUserDTO signUpUserDTO) {
+    public ResponseEntity<ShowUserDTO> login(@RequestBody @Valid LoginDTO loginDTO) {
         UsernamePasswordAuthenticationToken usernamePassword =
                 new UsernamePasswordAuthenticationToken(
-                        signUpUserDTO.email(),
-                        signUpUserDTO.password()
+                        loginDTO.email(),
+                        loginDTO.password()
                 );
 
         Authentication auth = authenticationManager.authenticate(usernamePassword);
