@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
-@RequestMapping("air_quality")
+@RequestMapping("/air_quality")
 public class AirMonitoringLogController {
 
     private final AirMonitoringLogService airMonitoringLogService;

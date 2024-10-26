@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("air_quality")
+@RequestMapping("/air_quality")
 public class AirMonitoringStationController {
 
     private final AirMonitoringStationService airMonitoringStationService;

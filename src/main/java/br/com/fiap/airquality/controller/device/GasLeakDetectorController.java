@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("air_quality")
+@RequestMapping("/air_quality")
 public class GasLeakDetectorController {
 
     private final GasLeakDetectorService gasLeakDetectorService;

@@ -12,7 +12,7 @@ public record SignUpUserDTO(
         String name,
 
         @NotBlank(message = "An email is mandatory.")
-        @Email(message = "The email must be in the format \"name@example.com\".")
+        @Email(message = "The email must be in the format name@example.com.")
         String email,
 
         @NotBlank(message = "A password is mandatory.")

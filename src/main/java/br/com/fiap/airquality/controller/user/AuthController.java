@@ -1,5 +1,8 @@
 package br.com.fiap.airquality.controller.user;
 
+import br.com.fiap.airquality.config.security.token.TokenDTO;
+import br.com.fiap.airquality.config.security.token.TokenService;
+import br.com.fiap.airquality.model.user.User;
 import br.com.fiap.airquality.model.user.dto.LoginDTO;
 import br.com.fiap.airquality.model.user.dto.ShowUserDTO;
 import br.com.fiap.airquality.model.user.dto.SignUpUserDTO;
@@ -23,8 +26,11 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
-    public ResponseEntity<ShowUserDTO> login(@RequestBody @Valid LoginDTO loginDTO) {
+    public ResponseEntity<TokenDTO> login(@RequestBody @Valid LoginDTO loginDTO) {
         UsernamePasswordAuthenticationToken usernamePassword =
                 new UsernamePasswordAuthenticationToken(
                         loginDTO.email(),
@@ -33,7 +39,9 @@ public class AuthController {
 
         Authentication auth = authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        String token = tokenService.createToken((User) auth.getPrincipal());
+
+        return ResponseEntity.ok(new TokenDTO(token));
     }
 
     @PostMapping("/register")

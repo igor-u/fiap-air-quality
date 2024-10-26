@@ -17,12 +17,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ShowUserDTO createUser(@RequestBody SignUpUserDTO signUpUserDTO){
-        return userService.createUser(signUpUserDTO);
-    }
-
     @GetMapping("/user")
     @ResponseStatus(HttpStatus.OK)
     public List<ShowUserDTO> findAll(){
