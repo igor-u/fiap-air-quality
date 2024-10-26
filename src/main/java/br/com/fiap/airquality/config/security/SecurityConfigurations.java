@@ -30,9 +30,11 @@ public class SecurityConfigurations {
                         .csrf(AbstractHttpConfigurer::disable)
                         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                         .authorizeHttpRequests(authorize -> {authorize
+                                .requestMatchers(HttpMethod.GET).permitAll()
                             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                            .requestMatchers(HttpMethod.PATCH).permitAll()
+                                .requestMatchers(HttpMethod.POST, "/air_quality").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.PATCH).hasAnyRole("ADMIN", "MONITOR")
                             .anyRequest().authenticated();
                         })
                         .addFilterBefore(
