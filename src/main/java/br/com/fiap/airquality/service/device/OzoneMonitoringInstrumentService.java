@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.service.device;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import br.com.fiap.airquality.model.device.impl.OzoneMonitoringInstrument;
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
@@ -26,7 +27,7 @@ public class OzoneMonitoringInstrumentService {
 
     public OzoneMonitoringInstrument findById(Long id) {
         return (OzoneMonitoringInstrument) deviceRepository.findById(id)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EntryNotFoundException::new);
     }
 
     public List<OzoneMonitoringInstrument> findAll() {
@@ -39,7 +40,7 @@ public class OzoneMonitoringInstrumentService {
     public void delete(Long id) {
         deviceRepository.delete(
                 deviceRepository.findById(id)
-                        .orElseThrow(RuntimeException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public OzoneMonitoringInstrument update(OzoneMonitoringInstrument ozoneMonitoringInstrument) {
@@ -47,14 +48,14 @@ public class OzoneMonitoringInstrumentService {
         OzoneMonitoringInstrument optionalOzoneMonitoringInstrument =
                 (OzoneMonitoringInstrument) deviceRepository
                 .findById(ozoneMonitoringInstrument.getId())
-                        .orElseThrow(RuntimeException::new);
+                        .orElseThrow(EntryNotFoundException::new);
 
         if (optionalOzoneMonitoringInstrument != null) {
             return deviceRepository.save(ozoneMonitoringInstrument);
         }
 
         else {
-            throw new RuntimeException();
+            throw new EntryNotFoundException();
         }
 
     }

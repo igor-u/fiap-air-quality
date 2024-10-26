@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.service.monitor;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import br.com.fiap.airquality.model.monitor.AirMonitoringLog;
 import br.com.fiap.airquality.repository.monitor.AirMonitoringLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class AirMonitoringLogService {
     }
 
     public AirMonitoringLog findById(Long id) {
-        return airMonitoringLogRepository.findById(id).orElseThrow(RuntimeException::new);
+        return airMonitoringLogRepository.findById(id).orElseThrow(EntryNotFoundException::new);
     }
 
     public List<AirMonitoringLog> findAll() {
@@ -40,7 +41,7 @@ public class AirMonitoringLogService {
     public void delete(Long id) {
         airMonitoringLogRepository.delete(
                 airMonitoringLogRepository.findById(id)
-                        .orElseThrow(RuntimeException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public AirMonitoringLog update(AirMonitoringLog airMonitoringLog) {
@@ -52,7 +53,7 @@ public class AirMonitoringLogService {
         }
 
         else {
-            throw new RuntimeException();
+            throw new EntryNotFoundException();
         }
 
     }

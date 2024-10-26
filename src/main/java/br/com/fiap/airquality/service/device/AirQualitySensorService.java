@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.service.device;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
@@ -25,7 +26,7 @@ public class AirQualitySensorService {
 
     public AirQualitySensor findById(Long id) {
         return (AirQualitySensor) deviceRepository.findById(id)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EntryNotFoundException::new);
     }
 
     public List<AirQualitySensor> findAll() {
@@ -38,7 +39,7 @@ public class AirQualitySensorService {
     public void delete(Long id) {
         deviceRepository.delete(
                 deviceRepository.findById(id)
-                        .orElseThrow(RuntimeException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public AirQualitySensor update(AirQualitySensor airQualitySensor) {
@@ -46,14 +47,14 @@ public class AirQualitySensorService {
         AirQualitySensor optionalAirQualitySensor =
                 (AirQualitySensor) deviceRepository
                         .findById(airQualitySensor.getId())
-                        .orElseThrow(RuntimeException::new);
+                        .orElseThrow(EntryNotFoundException::new);
 
         if (optionalAirQualitySensor != null) {
             return deviceRepository.save(airQualitySensor);
         }
 
         else {
-            throw new RuntimeException();
+            throw new EntryNotFoundException();
         }
 
     }

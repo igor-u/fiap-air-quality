@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.service.monitor;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import br.com.fiap.airquality.model.device.Device;
 import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.repository.monitor.AirMonitoringStationRepository;
@@ -32,16 +33,16 @@ public class AirMonitoringStationService {
         Optional<Device> device = deviceRepository.findById(deviceId);
 
         station
-                .orElseThrow()
+                .orElseThrow(EntryNotFoundException::new)
                 .getDevices()
-                .add(device.orElseThrow());
+                .add(device.orElseThrow(EntryNotFoundException::new));
 
         return station.get();
 
     }
 
     public AirMonitoringStation findById(Long id) {
-        return airMonitoringStationRepository.findById(id).orElseThrow(RuntimeException::new);
+        return airMonitoringStationRepository.findById(id).orElseThrow(EntryNotFoundException::new);
     }
 
     public List<AirMonitoringStation> findAll() {
@@ -51,7 +52,7 @@ public class AirMonitoringStationService {
     public void delete(Long id) {
         airMonitoringStationRepository.delete(
                 airMonitoringStationRepository.findById(id)
-                        .orElseThrow(RuntimeException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public AirMonitoringStation update(AirMonitoringStation airMonitoringStation) {
@@ -63,7 +64,7 @@ public class AirMonitoringStationService {
         }
 
         else {
-            throw new RuntimeException();
+            throw new EntryNotFoundException();
         }
 
     }

@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.service.user;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import br.com.fiap.airquality.model.user.User;
 import br.com.fiap.airquality.model.user.dto.ShowUserDTO;
 import br.com.fiap.airquality.model.user.dto.SignUpUserDTO;
@@ -36,7 +37,7 @@ public class UserService {
     public ShowUserDTO findById(Long id) {
         return new ShowUserDTO(
                 userRepository.findById(id)
-                .orElseThrow(RuntimeException::new));
+                .orElseThrow(EntryNotFoundException::new));
     }
 
     public List<ShowUserDTO> findAll() {
@@ -49,7 +50,7 @@ public class UserService {
     public void delete(Long id) {
         userRepository.delete(
                 userRepository.findById(id)
-                        .orElseThrow(RuntimeException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public ShowUserDTO update(User user) {
@@ -62,7 +63,7 @@ public class UserService {
         }
 
         else {
-            throw new RuntimeException();
+            throw new EntryNotFoundException();
         }
 
     }
