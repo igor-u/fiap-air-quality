@@ -1,9 +1,13 @@
 package br.com.fiap.airquality.service.device;
 
 import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
+import br.com.fiap.airquality.model.device.impl.OzoneMonitoringInstrument;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class GasLeakDetectorService {
@@ -15,8 +19,43 @@ public class GasLeakDetectorService {
         this.deviceRepository = deviceRepository;
     }
 
-    public GasLeakDetector createDevice(GasLeakDetector gasLeakDetector) {
+    public GasLeakDetector create(GasLeakDetector gasLeakDetector) {
         return deviceRepository.save(gasLeakDetector);
+    }
+
+    public GasLeakDetector findById(Long id) {
+        return (GasLeakDetector) deviceRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+    }
+
+    public List<GasLeakDetector> findAll() {
+        return new ArrayList<>(deviceRepository.findAll()
+                .stream()
+                .map(device -> (GasLeakDetector) device)
+                .toList());
+    }
+
+    public void delete(Long id) {
+        deviceRepository.delete(
+                deviceRepository.findById(id)
+                        .orElseThrow(RuntimeException::new));
+    }
+
+    public GasLeakDetector update(GasLeakDetector gasLeakDetector) {
+
+        GasLeakDetector optionalGasLeakDetector =
+                (GasLeakDetector) deviceRepository
+                        .findById(gasLeakDetector.getId())
+                        .orElseThrow(RuntimeException::new);
+
+        if (optionalGasLeakDetector != null) {
+            return deviceRepository.save(gasLeakDetector);
+        }
+
+        else {
+            throw new RuntimeException();
+        }
+
     }
 
 }

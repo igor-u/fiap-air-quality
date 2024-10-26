@@ -1,7 +1,6 @@
 package br.com.fiap.airquality.controller.monitor;
 
 import br.com.fiap.airquality.model.monitor.AirMonitoringLog;
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.service.monitor.AirMonitoringLogService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,18 @@ public class AirMonitoringLogController {
     @PostMapping("/log")
     @Transactional
     public AirMonitoringLog create(@RequestBody AirMonitoringLog airMonitoringLog) {
-        return airMonitoringLogService.createLog(airMonitoringLog);
+        return airMonitoringLogService.create(airMonitoringLog);
+    }
+
+    @GetMapping("/log")
+    @ResponseStatus(HttpStatus.OK)
+    public List<AirMonitoringLog> findAll(){
+        return airMonitoringLogService.findAll();
+    }
+
+    @GetMapping("/log/{id}")
+    public AirMonitoringLog findById(@PathVariable Long id){
+        return airMonitoringLogService.findById(id);
     }
 
     @RequestMapping(value = "/log", params = {"minDate", "maxDate"})
@@ -34,6 +44,18 @@ public class AirMonitoringLogController {
             @RequestParam Timestamp minDate,
             @RequestParam Timestamp maxDate) {
         return airMonitoringLogService.findByDateRange(minDate, maxDate);
+    }
+
+    @DeleteMapping("/log/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id){
+        airMonitoringLogService.delete(id);
+    }
+
+    @PutMapping("/log")
+    @ResponseStatus(HttpStatus.OK)
+    public AirMonitoringLog update(@RequestBody AirMonitoringLog airMonitoringLog){
+        return airMonitoringLogService.update(airMonitoringLog);
     }
 
 }

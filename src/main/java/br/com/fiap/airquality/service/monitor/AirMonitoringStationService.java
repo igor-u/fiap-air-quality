@@ -7,6 +7,8 @@ import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,7 +23,7 @@ public class AirMonitoringStationService {
         this.deviceRepository = deviceRepository;
     }
 
-    public AirMonitoringStation createStation(AirMonitoringStation airMonitoringStation) {
+    public AirMonitoringStation create(AirMonitoringStation airMonitoringStation) {
         return airMonitoringStationRepository.save(airMonitoringStation);
     }
 
@@ -35,6 +37,34 @@ public class AirMonitoringStationService {
                 .add(device.orElseThrow());
 
         return station.get();
+
+    }
+
+    public AirMonitoringStation findById(Long id) {
+        return airMonitoringStationRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    public List<AirMonitoringStation> findAll() {
+        return new ArrayList<>(airMonitoringStationRepository.findAll());
+    }
+
+    public void delete(Long id) {
+        airMonitoringStationRepository.delete(
+                airMonitoringStationRepository.findById(id)
+                        .orElseThrow(RuntimeException::new));
+    }
+
+    public AirMonitoringStation update(AirMonitoringStation airMonitoringStation) {
+
+        Optional<AirMonitoringStation> optionalAirMonitoringStation = airMonitoringStationRepository.findById(airMonitoringStation.getId());
+
+        if (optionalAirMonitoringStation.isPresent()) {
+            return airMonitoringStationRepository.save(airMonitoringStation);
+        }
+
+        else {
+            throw new RuntimeException();
+        }
 
     }
 

@@ -2,11 +2,15 @@ package br.com.fiap.airquality.model.monitor;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "air_monitoring_logs")
+@Getter
+@Setter
 public class AirMonitoringLog {
 
     @Id
