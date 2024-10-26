@@ -33,9 +33,9 @@ public class SecurityConfigurations {
                                 .requestMatchers(HttpMethod.GET).permitAll()
                             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/air_quality").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.PUT, "/air_quality").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.DELETE, "/air_quality").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/air_quality/*").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/air_quality/*").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/air_quality/*").hasRole("ADMIN")
                             .requestMatchers(HttpMethod.PATCH).hasAnyRole("ADMIN", "MONITOR")
                             .anyRequest().authenticated();
                         })
