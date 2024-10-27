@@ -1,5 +1,6 @@
 package br.com.fiap.airquality.advice;
 
+import br.com.fiap.airquality.exception.EntryNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -38,6 +39,15 @@ public class ApplicationExceptionHandler {
 
         return errorMap;
 
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EntryNotFoundException.class)
+    public Map<String, String> handleEntryNotFound() {
+        Map<String, String> errorMap = new HashMap<>();
+        errorMap.put("error", "Entry not found.");
+
+        return errorMap;
     }
 
 }
