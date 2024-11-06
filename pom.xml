@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap</groupId>
-	<artifactId>airquality</artifactId>
+	<artifactId>air-quality</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>air-quality</name>
 	<description>Projeto de Monitoramento da Qualidade do Ar</description>
