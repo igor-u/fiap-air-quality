@@ -65,5 +65,3 @@ As funcionalidades - presentes no arquivo `Air_Quality.postman_collection.json` 
     - Instrumentos de Monitoramento de Ozônio.
 * Logs de Monitoramento;
 * Usuários.
-
----
