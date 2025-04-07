@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.configuration.mongo;
+package br.com.fiap.airquality.config.mongo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

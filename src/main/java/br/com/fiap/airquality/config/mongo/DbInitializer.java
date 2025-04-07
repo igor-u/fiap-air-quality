@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.configuration.mongo;
+package br.com.fiap.airquality.config.mongo;
 
 import br.com.fiap.airquality.domain.device.Device;
 import br.com.fiap.airquality.domain.device.DeviceStatus;
@@ -14,12 +14,12 @@ import java.util.HashSet;
 import java.util.List;
 
 @Component
-public class DatabaseInitializer implements CommandLineRunner {
+public class DbInitializer implements CommandLineRunner {
 
     private final AirMonitoringStationRepository stationRepository;
     private final DeviceRepository deviceRepository;
 
-    public DatabaseInitializer(AirMonitoringStationRepository stationRepository, DeviceRepository deviceRepository) {
+    public DbInitializer(AirMonitoringStationRepository stationRepository, DeviceRepository deviceRepository) {
         this.stationRepository = stationRepository;
         this.deviceRepository = deviceRepository;
     }

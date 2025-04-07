@@ -1,7 +1,7 @@
 package br.com.fiap.airquality.controller.user;
 
-import br.com.fiap.airquality.configuration.security.token.TokenDTO;
-import br.com.fiap.airquality.configuration.security.token.TokenService;
+import br.com.fiap.airquality.config.security.token.TokenDTO;
+import br.com.fiap.airquality.config.security.token.TokenService;
 import br.com.fiap.airquality.domain.user.User;
 import br.com.fiap.airquality.domain.user.dto.LoginDTO;
 import br.com.fiap.airquality.domain.user.dto.ShowUserDTO;

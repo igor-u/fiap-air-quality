@@ -1,6 +1,6 @@
-package br.com.fiap.airquality.configuration.security;
+package br.com.fiap.airquality.config.security;
 
-import br.com.fiap.airquality.configuration.security.token.VerifyToken;
+import br.com.fiap.airquality.config.security.token.VerifyToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
