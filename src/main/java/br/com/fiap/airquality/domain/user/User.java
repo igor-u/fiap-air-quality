@@ -1,8 +1,10 @@
-package br.com.fiap.airquality.model.user;
+package br.com.fiap.airquality.domain.user;
 
-import jakarta.persistence.*;
+import br.com.fiap.airquality.domain.UuidIdentifiedEntity;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,17 +12,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
+@SuperBuilder
 @Getter
 @Setter
-public class User implements UserDetails {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUserId")
-    @SequenceGenerator(name = "seqUserId", sequenceName = "SEQ_USER_ID", allocationSize = 1)
-    @Column(name = "id")
-    private Long id;
+public class User extends UuidIdentifiedEntity implements UserDetails {
 
     private String name;
 
@@ -28,7 +24,6 @@ public class User implements UserDetails {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Override

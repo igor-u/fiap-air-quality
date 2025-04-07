@@ -1,10 +1,12 @@
 package br.com.fiap.airquality.repository.user;
 
-import br.com.fiap.airquality.model.user.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.fiap.airquality.domain.user.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.UUID;
+
+public interface UserRepository extends MongoRepository<User, UUID> {
 
     UserDetails findByEmail(String email);
 

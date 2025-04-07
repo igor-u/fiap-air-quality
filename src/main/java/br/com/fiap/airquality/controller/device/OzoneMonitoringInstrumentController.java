@@ -1,13 +1,14 @@
 package br.com.fiap.airquality.controller.device;
 
-import br.com.fiap.airquality.model.device.impl.OzoneMonitoringInstrument;
+import br.com.fiap.airquality.domain.device.impl.OzoneMonitoringInstrument;
 import br.com.fiap.airquality.service.device.OzoneMonitoringInstrumentService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/air_quality")
@@ -33,13 +34,13 @@ public class OzoneMonitoringInstrumentController {
     }
 
     @GetMapping("/ozone_monitoring_instrument/{id}")
-    public OzoneMonitoringInstrument findById(@PathVariable Long id){
+    public OzoneMonitoringInstrument findById(@PathVariable UUID id){
         return ozoneMonitoringInstrumentService.findById(id);
     }
 
     @DeleteMapping("/ozone_monitoring_instrument/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable UUID id){
         ozoneMonitoringInstrumentService.delete(id);
     }
 

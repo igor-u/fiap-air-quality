@@ -1,13 +1,14 @@
 package br.com.fiap.airquality.controller.device;
 
-import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
+import br.com.fiap.airquality.domain.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.service.device.AirQualitySensorService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/air_quality")
@@ -33,13 +34,13 @@ public class AirQualitySensorController {
     }
 
     @GetMapping("/air_quality_sensor/{id}")
-    public AirQualitySensor findById(@PathVariable Long id){
+    public AirQualitySensor findById(@PathVariable UUID id){
         return airQualitySensorService.findById(id);
     }
 
     @DeleteMapping("/air_quality_sensor/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable UUID id){
         airQualitySensorService.delete(id);
     }
 

@@ -1,7 +1,9 @@
 package br.com.fiap.airquality.repository.monitor;
 
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.fiap.airquality.domain.monitor.AirMonitoringStation;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AirMonitoringStationRepository extends JpaRepository<AirMonitoringStation, Long> {
+import java.util.UUID;
+
+public interface AirMonitoringStationRepository extends MongoRepository<AirMonitoringStation, UUID> {
 }

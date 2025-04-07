@@ -1,14 +1,14 @@
 package br.com.fiap.airquality.service.device;
 
 import br.com.fiap.airquality.exception.EntryNotFoundException;
-import br.com.fiap.airquality.model.device.impl.AirQualitySensor;
-import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
+import br.com.fiap.airquality.domain.device.impl.AirQualitySensor;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AirQualitySensorService {
@@ -24,7 +24,7 @@ public class AirQualitySensorService {
         return deviceRepository.save(airQualitySensor);
     }
 
-    public AirQualitySensor findById(Long id) {
+    public AirQualitySensor findById(UUID id) {
         return (AirQualitySensor) deviceRepository.findById(id)
                 .orElseThrow(EntryNotFoundException::new);
     }
@@ -36,7 +36,7 @@ public class AirQualitySensorService {
                 .toList());
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         deviceRepository.delete(
                 deviceRepository.findById(id)
                         .orElseThrow(EntryNotFoundException::new));

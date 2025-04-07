@@ -1,15 +1,14 @@
 package br.com.fiap.airquality.service.device;
 
 import br.com.fiap.airquality.exception.EntryNotFoundException;
-import br.com.fiap.airquality.model.device.impl.OzoneMonitoringInstrument;
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
+import br.com.fiap.airquality.domain.device.impl.OzoneMonitoringInstrument;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class OzoneMonitoringInstrumentService {
@@ -25,7 +24,7 @@ public class OzoneMonitoringInstrumentService {
         return deviceRepository.save(ozoneMonitoringInstrument);
     }
 
-    public OzoneMonitoringInstrument findById(Long id) {
+    public OzoneMonitoringInstrument findById(UUID id) {
         return (OzoneMonitoringInstrument) deviceRepository.findById(id)
                 .orElseThrow(EntryNotFoundException::new);
     }
@@ -37,7 +36,7 @@ public class OzoneMonitoringInstrumentService {
                 .toList());
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         deviceRepository.delete(
                 deviceRepository.findById(id)
                         .orElseThrow(EntryNotFoundException::new));

@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.config.security.token;
+package br.com.fiap.airquality.configuration.security.token;
 
 import br.com.fiap.airquality.repository.user.UserRepository;
 import jakarta.servlet.FilterChain;

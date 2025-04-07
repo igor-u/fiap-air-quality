@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.model.device;
+package br.com.fiap.airquality.domain.device;
 
 public enum DeviceStatus {
 

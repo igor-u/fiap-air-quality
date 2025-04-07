@@ -1,8 +1,8 @@
 package br.com.fiap.airquality.service.monitor;
 
 import br.com.fiap.airquality.exception.EntryNotFoundException;
-import br.com.fiap.airquality.model.device.Device;
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
+import br.com.fiap.airquality.domain.device.Device;
+import br.com.fiap.airquality.domain.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.repository.monitor.AirMonitoringStationRepository;
 import br.com.fiap.airquality.repository.device.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AirMonitoringStationService {
@@ -28,7 +29,7 @@ public class AirMonitoringStationService {
         return airMonitoringStationRepository.save(airMonitoringStation);
     }
 
-    public AirMonitoringStation addDevice(Long stationId, Long deviceId) {
+    public AirMonitoringStation addDevice(UUID stationId, UUID deviceId) {
         Optional<AirMonitoringStation> station = airMonitoringStationRepository.findById(stationId);
         Optional<Device> device = deviceRepository.findById(deviceId);
 
@@ -41,7 +42,7 @@ public class AirMonitoringStationService {
 
     }
 
-    public AirMonitoringStation findById(Long id) {
+    public AirMonitoringStation findById(UUID id) {
         return airMonitoringStationRepository.findById(id).orElseThrow(EntryNotFoundException::new);
     }
 
@@ -49,7 +50,7 @@ public class AirMonitoringStationService {
         return new ArrayList<>(airMonitoringStationRepository.findAll());
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         airMonitoringStationRepository.delete(
                 airMonitoringStationRepository.findById(id)
                         .orElseThrow(EntryNotFoundException::new));

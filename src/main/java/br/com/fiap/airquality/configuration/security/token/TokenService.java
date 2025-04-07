@@ -1,6 +1,6 @@
-package br.com.fiap.airquality.config.security.token;
+package br.com.fiap.airquality.configuration.security.token;
 
-import br.com.fiap.airquality.model.user.User;
+import br.com.fiap.airquality.domain.user.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

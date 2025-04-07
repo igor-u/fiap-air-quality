@@ -1,7 +1,7 @@
 package br.com.fiap.airquality.service.monitor;
 
 import br.com.fiap.airquality.exception.EntryNotFoundException;
-import br.com.fiap.airquality.model.monitor.AirMonitoringLog;
+import br.com.fiap.airquality.domain.monitor.AirMonitoringLog;
 import br.com.fiap.airquality.repository.monitor.AirMonitoringLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AirMonitoringLogService {
@@ -25,7 +26,7 @@ public class AirMonitoringLogService {
         return airMonitoringLogRepository.save(airMonitoringLog);
     }
 
-    public AirMonitoringLog findById(Long id) {
+    public AirMonitoringLog findById(UUID id) {
         return airMonitoringLogRepository.findById(id).orElseThrow(EntryNotFoundException::new);
     }
 
@@ -35,10 +36,10 @@ public class AirMonitoringLogService {
 
     public List<AirMonitoringLog> findByDateRange(Timestamp minTime, Timestamp maxTime){
         return airMonitoringLogRepository
-                .findByDateRange(minTime, maxTime);
+                .findByTimeBetweenOrderByTimeDesc(minTime, maxTime);
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         airMonitoringLogRepository.delete(
                 airMonitoringLogRepository.findById(id)
                         .orElseThrow(EntryNotFoundException::new));

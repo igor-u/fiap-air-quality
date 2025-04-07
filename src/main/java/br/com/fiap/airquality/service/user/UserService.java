@@ -1,9 +1,9 @@
 package br.com.fiap.airquality.service.user;
 
 import br.com.fiap.airquality.exception.EntryNotFoundException;
-import br.com.fiap.airquality.model.user.User;
-import br.com.fiap.airquality.model.user.dto.ShowUserDTO;
-import br.com.fiap.airquality.model.user.dto.SignUpUserDTO;
+import br.com.fiap.airquality.domain.user.User;
+import br.com.fiap.airquality.domain.user.dto.ShowUserDTO;
+import br.com.fiap.airquality.domain.user.dto.SignUpUserDTO;
 import br.com.fiap.airquality.repository.user.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,7 +25,7 @@ public class UserService {
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(signUpUserDTO.password());
 
-        User user = new User();
+        User user = User.builder().build();
         BeanUtils.copyProperties(signUpUserDTO, user);
 
         user.setPassword(encryptedPassword);
@@ -34,7 +35,7 @@ public class UserService {
         return new ShowUserDTO(createdUser);
     }
 
-    public ShowUserDTO findById(Long id) {
+    public ShowUserDTO findById(UUID id) {
         return new ShowUserDTO(
                 userRepository.findById(id)
                 .orElseThrow(EntryNotFoundException::new));
@@ -47,7 +48,7 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    public void delete(Long id) {
+    public void delete(UUID id) {
         userRepository.delete(
                 userRepository.findById(id)
                         .orElseThrow(EntryNotFoundException::new));

@@ -1,14 +1,15 @@
 package br.com.fiap.airquality.controller.monitor;
 
-import br.com.fiap.airquality.model.monitor.AirMonitoringLog;
+import br.com.fiap.airquality.domain.monitor.AirMonitoringLog;
 import br.com.fiap.airquality.service.monitor.AirMonitoringLogService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/air_quality")
@@ -34,7 +35,7 @@ public class AirMonitoringLogController {
     }
 
     @GetMapping("/log/{id}")
-    public AirMonitoringLog findById(@PathVariable Long id){
+    public AirMonitoringLog findById(@PathVariable UUID id){
         return airMonitoringLogService.findById(id);
     }
 
@@ -48,7 +49,7 @@ public class AirMonitoringLogController {
 
     @DeleteMapping("/log/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable UUID id){
         airMonitoringLogService.delete(id);
     }
 

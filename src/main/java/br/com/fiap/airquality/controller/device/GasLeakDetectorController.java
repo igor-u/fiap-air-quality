@@ -1,13 +1,14 @@
 package br.com.fiap.airquality.controller.device;
 
-import br.com.fiap.airquality.model.device.impl.GasLeakDetector;
+import br.com.fiap.airquality.domain.device.impl.GasLeakDetector;
 import br.com.fiap.airquality.service.device.GasLeakDetectorService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/air_quality")
@@ -33,13 +34,13 @@ public class GasLeakDetectorController {
     }
 
     @GetMapping("/gas_leak_detector/{id}")
-    public GasLeakDetector findById(@PathVariable Long id){
+    public GasLeakDetector findById(@PathVariable UUID id){
         return gasLeakDetectorService.findById(id);
     }
 
     @DeleteMapping("/gas_leak_detector/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable UUID id){
         gasLeakDetectorService.delete(id);
     }
 

@@ -1,7 +1,9 @@
 package br.com.fiap.airquality.repository.device;
 
-import br.com.fiap.airquality.model.device.Device;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.fiap.airquality.domain.device.Device;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface DeviceRepository extends JpaRepository<Device, Long> {
+import java.util.UUID;
+
+public interface DeviceRepository extends MongoRepository<Device, UUID> {
 }

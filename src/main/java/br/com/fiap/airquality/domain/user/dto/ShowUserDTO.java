@@ -1,10 +1,12 @@
-package br.com.fiap.airquality.model.user.dto;
+package br.com.fiap.airquality.domain.user.dto;
 
-import br.com.fiap.airquality.model.user.User;
-import br.com.fiap.airquality.model.user.UserRole;
+import br.com.fiap.airquality.domain.user.User;
+import br.com.fiap.airquality.domain.user.UserRole;
+
+import java.util.UUID;
 
 public record ShowUserDTO(
-        Long id,
+        UUID id,
 
         String name,
 

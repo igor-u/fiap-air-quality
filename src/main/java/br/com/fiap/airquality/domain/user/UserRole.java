@@ -1,4 +1,4 @@
-package br.com.fiap.airquality.model.user;
+package br.com.fiap.airquality.domain.user;
 
 public enum UserRole {
 

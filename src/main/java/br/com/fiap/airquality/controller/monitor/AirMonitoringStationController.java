@@ -1,13 +1,14 @@
 package br.com.fiap.airquality.controller.monitor;
 
-import br.com.fiap.airquality.model.monitor.AirMonitoringStation;
+import br.com.fiap.airquality.domain.monitor.AirMonitoringStation;
 import br.com.fiap.airquality.service.monitor.AirMonitoringStationService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/air_quality")
@@ -28,7 +29,7 @@ public class AirMonitoringStationController {
 
     @PatchMapping("/station/add_device")
     @Transactional
-    public AirMonitoringStation addDevice(@RequestParam Long stationId, @RequestParam Long deviceId) {
+    public AirMonitoringStation addDevice(@RequestParam UUID stationId, @RequestParam UUID deviceId) {
         return airMonitoringStationService.addDevice(stationId, deviceId);
     }
 
@@ -39,13 +40,13 @@ public class AirMonitoringStationController {
     }
 
     @GetMapping("/station/{id}")
-    public AirMonitoringStation findById(@PathVariable Long id){
+    public AirMonitoringStation findById(@PathVariable UUID id){
         return airMonitoringStationService.findById(id);
     }
 
     @DeleteMapping("/station/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable UUID id){
         airMonitoringStationService.delete(id);
     }
 
