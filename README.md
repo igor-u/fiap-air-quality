@@ -57,7 +57,7 @@ Essas propriedades estão configuradas para receberem valores de variáveis de a
 ---
 
 ### Funcionalidades
-As funcionalidades - presentes no arquivo `Air_Quality.postman_collection.json` -, envolvem objetos dos tipos:
+As funcionalidades - presentes no arquivo `Air_Quality.postman_collection.json` - envolvem objetos dos tipos:
 * Estações de Monitoramento;
 * Dispositivos:
     - Sensores de Qualidade do Ar;
