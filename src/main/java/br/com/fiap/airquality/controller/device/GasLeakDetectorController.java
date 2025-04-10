@@ -29,24 +29,24 @@ public class GasLeakDetectorController {
 
     @GetMapping("/gas_leak_detector")
     @ResponseStatus(HttpStatus.OK)
-    public List<GasLeakDetector> findAll(){
+    public List<GasLeakDetector> findAll() {
         return gasLeakDetectorService.findAll();
     }
 
     @GetMapping("/gas_leak_detector/{id}")
-    public GasLeakDetector findById(@PathVariable UUID id){
+    public GasLeakDetector findById(@PathVariable UUID id) {
         return gasLeakDetectorService.findById(id);
     }
 
     @DeleteMapping("/gas_leak_detector/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         gasLeakDetectorService.delete(id);
     }
 
     @PutMapping("/gas_leak_detector")
     @ResponseStatus(HttpStatus.OK)
-    public GasLeakDetector update(@RequestBody GasLeakDetector gasLeakDetector){
+    public GasLeakDetector update(@RequestBody GasLeakDetector gasLeakDetector) {
         return gasLeakDetectorService.update(gasLeakDetector);
     }
 

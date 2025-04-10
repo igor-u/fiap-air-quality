@@ -44,10 +44,9 @@ public class AirQualitySensorService {
 
     public AirQualitySensor update(AirQualitySensor airQualitySensor) {
 
-        AirQualitySensor optionalAirQualitySensor =
-                (AirQualitySensor) deviceRepository
-                        .findById(airQualitySensor.getId())
-                        .orElseThrow(EntryNotFoundException::new);
+        AirQualitySensor optionalAirQualitySensor = (AirQualitySensor) deviceRepository
+                .findById(airQualitySensor.getId())
+                .orElseThrow(EntryNotFoundException::new);
 
         if (optionalAirQualitySensor != null) {
             return deviceRepository.save(airQualitySensor);

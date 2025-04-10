@@ -38,7 +38,7 @@ public class UserService {
     public ShowUserDTO findById(UUID id) {
         return new ShowUserDTO(
                 userRepository.findById(id)
-                .orElseThrow(EntryNotFoundException::new));
+                        .orElseThrow(EntryNotFoundException::new));
     }
 
     public List<ShowUserDTO> findAll() {

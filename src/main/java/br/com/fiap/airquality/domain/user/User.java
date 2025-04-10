@@ -31,11 +31,10 @@ public class User extends UuidIdentifiedEntity implements UserDetails {
         if (this.role == UserRole.ADMIN) {
             return List.of(
                     new SimpleGrantedAuthority("ROLE_ADMIN"),
-                    new SimpleGrantedAuthority("ROLE_MONITOR")
-            );
-        } else return List.of(
-                new SimpleGrantedAuthority("ROLE_MONITOR")
-        );
+                    new SimpleGrantedAuthority("ROLE_MONITOR"));
+        } else
+            return List.of(
+                    new SimpleGrantedAuthority("ROLE_MONITOR"));
     }
 
     @Override

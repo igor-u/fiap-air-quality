@@ -31,11 +31,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<TokenDTO> login(@RequestBody @Valid LoginDTO loginDTO) {
-        UsernamePasswordAuthenticationToken usernamePassword =
-                new UsernamePasswordAuthenticationToken(
-                        loginDTO.email(),
-                        loginDTO.password()
-                );
+        UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
+                loginDTO.email(),
+                loginDTO.password());
 
         Authentication auth = authenticationManager.authenticate(usernamePassword);
 
@@ -50,7 +48,7 @@ public class AuthController {
         ShowUserDTO signedUpUser = null;
         signedUpUser = userService.createUser(signUpUserDTO);
 
-        return  signedUpUser;
+        return signedUpUser;
     }
 
 }

@@ -24,13 +24,15 @@ public class VerifyToken extends OncePerRequestFilter {
     private UserRepository userRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         String token = retrieveToken(request);
 
-        if(token != null) {
+        if (token != null) {
             String subject = tokenService.validateToken(token);
             UserDetails usuario = userRepository.findByEmail(subject);
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null,
+                    usuario.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
@@ -39,7 +41,7 @@ public class VerifyToken extends OncePerRequestFilter {
 
     private String retrieveToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader("Authorization");
-        if(authorizationHeader != null) {
+        if (authorizationHeader != null) {
             return authorizationHeader.replace("Bearer ", "");
         }
         return null;

@@ -20,7 +20,8 @@ public class AirMonitoringStationService {
     private final DeviceRepository deviceRepository;
 
     @Autowired
-    public AirMonitoringStationService(AirMonitoringStationRepository airMonitoringStationRepository, DeviceRepository deviceRepository) {
+    public AirMonitoringStationService(AirMonitoringStationRepository airMonitoringStationRepository,
+            DeviceRepository deviceRepository) {
         this.airMonitoringStationRepository = airMonitoringStationRepository;
         this.deviceRepository = deviceRepository;
     }
@@ -58,7 +59,8 @@ public class AirMonitoringStationService {
 
     public AirMonitoringStation update(AirMonitoringStation airMonitoringStation) {
 
-        Optional<AirMonitoringStation> optionalAirMonitoringStation = airMonitoringStationRepository.findById(airMonitoringStation.getId());
+        Optional<AirMonitoringStation> optionalAirMonitoringStation = airMonitoringStationRepository
+                .findById(airMonitoringStation.getId());
 
         if (optionalAirMonitoringStation.isPresent()) {
             return airMonitoringStationRepository.save(airMonitoringStation);

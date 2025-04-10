@@ -35,24 +35,24 @@ public class AirMonitoringStationController {
 
     @GetMapping("/station")
     @ResponseStatus(HttpStatus.OK)
-    public List<AirMonitoringStation> findAll(){
+    public List<AirMonitoringStation> findAll() {
         return airMonitoringStationService.findAll();
     }
 
     @GetMapping("/station/{id}")
-    public AirMonitoringStation findById(@PathVariable UUID id){
+    public AirMonitoringStation findById(@PathVariable UUID id) {
         return airMonitoringStationService.findById(id);
     }
 
     @DeleteMapping("/station/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         airMonitoringStationService.delete(id);
     }
 
     @PutMapping("/station")
     @ResponseStatus(HttpStatus.OK)
-    public AirMonitoringStation update(@RequestBody AirMonitoringStation airMonitoringStation){
+    public AirMonitoringStation update(@RequestBody AirMonitoringStation airMonitoringStation) {
         return airMonitoringStationService.update(airMonitoringStation);
     }
 

@@ -29,24 +29,24 @@ public class OzoneMonitoringInstrumentController {
 
     @GetMapping("/ozone_monitoring_instrument")
     @ResponseStatus(HttpStatus.OK)
-    public List<OzoneMonitoringInstrument> findAll(){
+    public List<OzoneMonitoringInstrument> findAll() {
         return ozoneMonitoringInstrumentService.findAll();
     }
 
     @GetMapping("/ozone_monitoring_instrument/{id}")
-    public OzoneMonitoringInstrument findById(@PathVariable UUID id){
+    public OzoneMonitoringInstrument findById(@PathVariable UUID id) {
         return ozoneMonitoringInstrumentService.findById(id);
     }
 
     @DeleteMapping("/ozone_monitoring_instrument/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         ozoneMonitoringInstrumentService.delete(id);
     }
 
     @PutMapping("/ozone_monitoring_instrument")
     @ResponseStatus(HttpStatus.OK)
-    public OzoneMonitoringInstrument update(@RequestBody OzoneMonitoringInstrument ozoneMonitoringInstrument){
+    public OzoneMonitoringInstrument update(@RequestBody OzoneMonitoringInstrument ozoneMonitoringInstrument) {
         return ozoneMonitoringInstrumentService.update(ozoneMonitoringInstrument);
     }
 

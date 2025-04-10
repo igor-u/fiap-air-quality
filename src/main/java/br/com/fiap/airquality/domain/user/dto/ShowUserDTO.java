@@ -12,8 +12,7 @@ public record ShowUserDTO(
 
         String email,
 
-        UserRole role
-) {
+        UserRole role) {
     public ShowUserDTO(User user) {
         this(user.getId(), user.getName(), user.getEmail(), user.getRole());
     }

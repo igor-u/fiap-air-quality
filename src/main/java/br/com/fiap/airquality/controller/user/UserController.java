@@ -19,24 +19,24 @@ public class UserController {
 
     @GetMapping("/user")
     @ResponseStatus(HttpStatus.OK)
-    public List<ShowUserDTO> findAll(){
+    public List<ShowUserDTO> findAll() {
         return userService.findAll();
     }
 
     @GetMapping("/user/{id}")
-    public ShowUserDTO findById(@PathVariable UUID id){
+    public ShowUserDTO findById(@PathVariable UUID id) {
         return userService.findById(id);
     }
 
     @DeleteMapping("/user/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         userService.delete(id);
     }
 
     @PutMapping("/user")
     @ResponseStatus(HttpStatus.OK)
-    public ShowUserDTO update(@RequestBody User user){
+    public ShowUserDTO update(@RequestBody User user) {
         return userService.update(user);
     }
 

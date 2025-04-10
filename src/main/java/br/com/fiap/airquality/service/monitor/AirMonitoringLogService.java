@@ -34,7 +34,7 @@ public class AirMonitoringLogService {
         return new ArrayList<>(airMonitoringLogRepository.findAll());
     }
 
-    public List<AirMonitoringLog> findByDateRange(Timestamp minTime, Timestamp maxTime){
+    public List<AirMonitoringLog> findByDateRange(Timestamp minTime, Timestamp maxTime) {
         return airMonitoringLogRepository
                 .findByTimeBetweenOrderByTimeDesc(minTime, maxTime);
     }
@@ -47,7 +47,8 @@ public class AirMonitoringLogService {
 
     public AirMonitoringLog update(AirMonitoringLog airMonitoringLog) {
 
-        Optional<AirMonitoringLog> optionalAirMonitoringStation = airMonitoringLogRepository.findById(airMonitoringLog.getId());
+        Optional<AirMonitoringLog> optionalAirMonitoringStation = airMonitoringLogRepository
+                .findById(airMonitoringLog.getId());
 
         if (optionalAirMonitoringStation.isPresent()) {
             return airMonitoringLogRepository.save(airMonitoringLog);

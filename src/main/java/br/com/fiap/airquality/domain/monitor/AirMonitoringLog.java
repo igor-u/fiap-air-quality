@@ -1,6 +1,5 @@
 package br.com.fiap.airquality.domain.monitor;
 
-
 import br.com.fiap.airquality.domain.UuidIdentifiedEntity;
 import lombok.Getter;
 import lombok.Setter;

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface AirMonitoringLogRepository extends MongoRepository<AirMonitoringLog, UUID> {
 
-//    @Query("{ 'time' : { $gte: ?0, $lte: ?1 } }")
+    // @Query("{ 'time' : { $gte: ?0, $lte: ?1 } }")
     List<AirMonitoringLog> findByTimeBetweenOrderByTimeDesc(Timestamp min, Timestamp max);
 
 }

@@ -30,16 +30,16 @@ public class AirMonitoringLogController {
 
     @GetMapping("/log")
     @ResponseStatus(HttpStatus.OK)
-    public List<AirMonitoringLog> findAll(){
+    public List<AirMonitoringLog> findAll() {
         return airMonitoringLogService.findAll();
     }
 
     @GetMapping("/log/{id}")
-    public AirMonitoringLog findById(@PathVariable UUID id){
+    public AirMonitoringLog findById(@PathVariable UUID id) {
         return airMonitoringLogService.findById(id);
     }
 
-    @RequestMapping(value = "/log", params = {"minDate", "maxDate"})
+    @RequestMapping(value = "/log", params = { "minDate", "maxDate" })
     @ResponseStatus(HttpStatus.OK)
     public List<AirMonitoringLog> findByDateRange(
             @RequestParam Timestamp minDate,
@@ -49,13 +49,13 @@ public class AirMonitoringLogController {
 
     @DeleteMapping("/log/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         airMonitoringLogService.delete(id);
     }
 
     @PutMapping("/log")
     @ResponseStatus(HttpStatus.OK)
-    public AirMonitoringLog update(@RequestBody AirMonitoringLog airMonitoringLog){
+    public AirMonitoringLog update(@RequestBody AirMonitoringLog airMonitoringLog) {
         return airMonitoringLogService.update(airMonitoringLog);
     }
 

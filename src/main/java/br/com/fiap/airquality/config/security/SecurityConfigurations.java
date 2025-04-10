@@ -25,24 +25,24 @@ public class SecurityConfigurations {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return
-                http
-                        .csrf(AbstractHttpConfigurer::disable)
-                        .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                        .authorizeHttpRequests(authorize -> {authorize
-                                .requestMatchers(HttpMethod.GET).permitAll()
+        return http
+                .csrf(AbstractHttpConfigurer::disable)
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> {
+                    authorize
+                            .requestMatchers(HttpMethod.GET).permitAll()
                             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/air_quality/*").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.PUT, "/air_quality/*").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.DELETE, "/air_quality/*").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/air_quality/*").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.PUT, "/air_quality/*").hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.DELETE, "/air_quality/*").hasRole("ADMIN")
                             .requestMatchers(HttpMethod.PATCH).hasAnyRole("ADMIN", "MONITOR")
                             .anyRequest().authenticated();
-                        })
-                        .addFilterBefore(
-                            verifyToken,
-                                UsernamePasswordAuthenticationFilter.class)
-                        .build();
+                })
+                .addFilterBefore(
+                        verifyToken,
+                        UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
 
     @Bean

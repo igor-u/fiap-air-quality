@@ -44,10 +44,9 @@ public class OzoneMonitoringInstrumentService {
 
     public OzoneMonitoringInstrument update(OzoneMonitoringInstrument ozoneMonitoringInstrument) {
 
-        OzoneMonitoringInstrument optionalOzoneMonitoringInstrument =
-                (OzoneMonitoringInstrument) deviceRepository
+        OzoneMonitoringInstrument optionalOzoneMonitoringInstrument = (OzoneMonitoringInstrument) deviceRepository
                 .findById(ozoneMonitoringInstrument.getId())
-                        .orElseThrow(EntryNotFoundException::new);
+                .orElseThrow(EntryNotFoundException::new);
 
         if (optionalOzoneMonitoringInstrument != null) {
             return deviceRepository.save(ozoneMonitoringInstrument);

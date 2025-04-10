@@ -44,10 +44,9 @@ public class GasLeakDetectorService {
 
     public GasLeakDetector update(GasLeakDetector gasLeakDetector) {
 
-        GasLeakDetector optionalGasLeakDetector =
-                (GasLeakDetector) deviceRepository
-                        .findById(gasLeakDetector.getId())
-                        .orElseThrow(EntryNotFoundException::new);
+        GasLeakDetector optionalGasLeakDetector = (GasLeakDetector) deviceRepository
+                .findById(gasLeakDetector.getId())
+                .orElseThrow(EntryNotFoundException::new);
 
         if (optionalGasLeakDetector != null) {
             return deviceRepository.save(gasLeakDetector);

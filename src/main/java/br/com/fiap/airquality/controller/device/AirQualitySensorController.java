@@ -29,24 +29,24 @@ public class AirQualitySensorController {
 
     @GetMapping("/air_quality_sensor")
     @ResponseStatus(HttpStatus.OK)
-    public List<AirQualitySensor> findAll(){
+    public List<AirQualitySensor> findAll() {
         return airQualitySensorService.findAll();
     }
 
     @GetMapping("/air_quality_sensor/{id}")
-    public AirQualitySensor findById(@PathVariable UUID id){
+    public AirQualitySensor findById(@PathVariable UUID id) {
         return airQualitySensorService.findById(id);
     }
 
     @DeleteMapping("/air_quality_sensor/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable UUID id) {
         airQualitySensorService.delete(id);
     }
 
     @PutMapping("/air_quality_sensor")
     @ResponseStatus(HttpStatus.OK)
-    public AirQualitySensor update(@RequestBody AirQualitySensor airQualitySensor){
+    public AirQualitySensor update(@RequestBody AirQualitySensor airQualitySensor) {
         return airQualitySensorService.update(airQualitySensor);
     }
 
