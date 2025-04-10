@@ -1,0 +1,46 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "air-quality-db"
+  },
+  "spec": {
+    "selector": {
+      "matchLabels": {
+        "app": "air-quality-db"
+      }
+    },
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "air-quality-db"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "air-quality-db",
+            "image": "mongo:latest",
+            "resources": {
+              "requests": {
+                "cpu": "100m",
+                "memory": "512M"
+              },
+              "limits": {
+                "cpu": "100m",
+                "memory": "1Gi"
+              }
+            },
+            "ports": [
+              {
+                "containerPort": 27017,
+                "name": "mongodb"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

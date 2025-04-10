@@ -1,0 +1,52 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "air-quality-backend"
+  },
+  "spec": {
+    "selector": {
+      "matchLabels": {
+        "app": "air-quality-backend"
+      }
+    },
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "air-quality-backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "air-quality-backend",
+            "image": "igorrrr/air-quality-rest:1.0.0",
+            "env": [
+              {
+                "name": "SPRING_DATA_MONGODB_HOST",
+                "value": "air-quality-db-service.default.svc.cluster.local"
+              }
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "100m",
+                "memory": "512M"
+              },
+              "limits": {
+                "cpu": "100m",
+                "memory": "1Gi"
+              }
+            },
+            "ports": [
+              {
+                "containerPort": 8080,
+                "name": "http"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

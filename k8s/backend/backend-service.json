@@ -1,0 +1,22 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "name": "air-quality-backend-service"
+  },
+  "spec": {
+    "type": "NodePort",
+    "selector": {
+      "app": "air-quality-backend"
+    },
+    "ports": [
+      {
+      "name": "http",
+      "protocol": "TCP",
+      "port": 8080,
+      "targetPort": "backend",
+      "nodePort": 30001
+    }
+  ]
+  }
+}
