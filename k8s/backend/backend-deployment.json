@@ -34,7 +34,7 @@
                 "memory": "512M"
               },
               "limits": {
-                "cpu": "100m",
+                "cpu": "500m",
                 "memory": "1Gi"
               }
             },
