@@ -126,7 +126,7 @@ O workflow criado executa as seguintes etapas principais:
 
 [actions/checkout@v4](https://github.com/marketplace/actions/checkout): copia o código do repositório do GitHub para o sistema de arquivos do runner, permitindo que as etapas subsequentes do workflow possam acessar e trabalhar com o código do projeto.
 
-[azure/cli@v2](https://github.com/marketplace/actions/azure-cli-action): um script ([deploy_to_azure_aks.sh](https://github.com/igor-u/fiap-air-quality/blob/nosql/deploy_to_azure_aks.sh)) é executado para provisionar um novo cluster Kubernetes no Azure Kubernetes Service (AKS), e para executar o comando kubectl apply, aplicando os arquivos manifest do Kubernetes (Deployments, Services e NetworkPolicy) ao cluster recém-criado. Isso cria os pods do backend e do banco de dados, expõe os serviços e aplica as políticas de rede definidas.
+[azure/cli@v2](https://github.com/marketplace/actions/azure-cli-action): um script ([deploy_to_azure_aks.sh](https://github.com/igor-u/fiap-air-quality/blob/nosql/deploy_to_azure_aks.sh)) é executado para provisionar um novo cluster Kubernetes no Azure Kubernetes Service (AKS), e para executar o comando `kubectl apply`, aplicando os arquivos manifest do Kubernetes (Deployments, Services e NetworkPolicy) ao cluster recém-criado. Isso cria os pods do backend e do banco de dados, expõe os serviços e aplica as políticas de rede definidas.
 
 ---
 
