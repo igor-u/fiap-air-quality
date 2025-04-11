@@ -6,7 +6,7 @@
 
 ---
 ### Introdução
-Este projeto implementa práticas da cultura DevOps em uma aplicação existente, abrangendo orquestração de contêineres, integração contínua e computação em nuvem.
+  Este projeto implementa práticas da cultura DevOps em uma aplicação existente, abrangendo orquestração de contêineres, integração contínua e computação em nuvem.
 A aplicação original consiste em uma API para controle da qualidade do ar.
 
 ---
@@ -33,7 +33,7 @@ Isso permite que essas imagens sejam facilmente acessíveis e utilizadas em dife
 ---
 
 ### Azure
-A integração do GitHub Actions com o Azure Active Directory (recentemente renomeado para [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)) para automatizar a criação e gerenciamento do cluster Kubernetes envolve a configuração da autenticação e autorização seguras. O método utilizado é o OpenID Connect (OIDC), que permite que o GitHub Actions se autentique no Azure sem a necessidade de armazenar segredos de longa duração diretamente no repositório. Seguem os passos de configuração realizados no Azure:
+  A integração do GitHub Actions com o Azure Active Directory (recentemente renomeado para [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)) para automatizar a criação e gerenciamento do cluster Kubernetes envolve a configuração da autenticação e autorização seguras. O método utilizado é o OpenID Connect (OIDC), que permite que o GitHub Actions se autentique no Azure sem a necessidade de armazenar segredos de longa duração diretamente no repositório. Seguem os passos de configuração realizados no Azure:
 
 ---
 
@@ -88,7 +88,7 @@ O “appId” retornado é o ID do aplicativo.
 ```
   az ad sp create --id {appId}
 ```
-O “id” retornado é o ID do Service Principal. Um Service Principal (SP) é uma representação do App Registration no tenant do Azure
+O id retornado é o ID do Service Principal. Um Service Principal (SP) é uma representação do App Registration no tenant do Azure
 AD. Ele é necessário para atribuir permissões ao aplicativo. O comando cria o SP correspondente ao appId do registro de aplicativo criado anteriormente.
 
 ---
@@ -106,7 +106,7 @@ ${\color{yellow}\text{Tais comandos criam uma relação de confiança entre o Az
 ---
 
 ### Kubernetes
-Para a orquestração dos contêineres, são criados arquivos de configuração para o Kubernetes. Esses arquivos descrevem o estado desejado dos componentes dentro do
+  Para a orquestração dos contêineres, são criados arquivos de configuração para o Kubernetes. Esses arquivos descrevem o estado desejado dos componentes dentro do
 cluster. Os arquivos de configuração incluem:
 
 * Deployments : definem como as instâncias (pods) do backend e do banco de dados devem ser criadas e gerenciadas. Garantem a disponibilidade e escalabilidade da API.
@@ -126,7 +126,7 @@ O workflow criado executa as seguintes etapas principais:
 
 [actions/checkout@v4](https://github.com/marketplace/actions/checkout): copia o código do repositório do GitHub para o sistema de arquivos do runner, permitindo que as etapas subsequentes do workflow possam acessar e trabalhar com o código do projeto.
 
-[azure/cli@v2](https://github.com/marketplace/actions/azure-cli-action): um script ([deploy_to_azure_aks.sh](https://github.com/igor-u/fiap-air-quality/blob/nosql/deploy_to_azure_aks.sh)) é executado para provisionar um novo cluster Kubernetes no Azure Kubernetes Service (AKS), e para executar o comando `kubectl apply`, aplicando os arquivos manifest do Kubernetes (Deployments, Services e NetworkPolicy) ao cluster recém-criado. Isso cria os pods do backend e do banco de dados, expõe os serviços e aplica as políticas de rede definidas.
+[azure/cli@v2](https://github.com/marketplace/actions/azure-cli-action): um script ([deploy_to_azure_aks.sh](https://github.com/igor-u/fiap-air-quality/blob/nosql/deploy_to_azure_aks.sh)) é executado para provisionar um novo cluster Kubernetes no Azure Kubernetes Service (AKS), e para executar o comando `kubectl apply`, aplicando os arquivos *manifest* do Kubernetes (Deployments, Services e NetworkPolicy) ao cluster recém-criado. Isso cria os pods do backend e do banco de dados, expõe os serviços e aplica as políticas de rede definidas.
 
 ---
 
