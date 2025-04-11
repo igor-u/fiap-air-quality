@@ -1,7 +1,7 @@
 ## API RESTful que Simula o Monitoramento da Qualidade do Ar
 
 <p align="center">
-  <img src="air_quality_rest.png" alt="Air Quality REST"/>
+  <img src="air_quality_nosql.png" alt="Air Quality NoSQL"/>
 </p>
 
 ---
