@@ -97,12 +97,11 @@ AD. Ele é necessário para atribuir permissões ao aplicativo. O comando cria o
 ```
   az role assignment create --role contributor --subscription {subscriptionId} --assignee-object-id {spID} --assignee-principal-type ServicePrincipal --scope /subscriptions/{subscriptionId}/resourceGroups/air_quality
 ```
-Isso permite que o GitHub Actions (representado pelo SP) execute ações como criar e
-gerenciar recursos dentro do resource group “air_quality”, incluindo o cluster AKS.
+Isso permite que o GitHub Actions (representado pelo SP) execute ações como criar e gerenciar recursos dentro do resource group “air_quality”, incluindo o cluster AKS.
 
 ---
 
-*Tais comandos criam uma relação de confiança entre o Azure Active Directory (Microsoft Entra ID) e o GitHub Actions.*
+${\color{yellow}\text{Tais comandos criam uma relação de confiança entre o Azure Active Directory (Microsoft Entra ID) e o GitHub Actions.}}$
 
 ---
 
