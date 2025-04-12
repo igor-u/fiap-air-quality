@@ -89,7 +89,7 @@ O “appId” retornado é o ID do aplicativo.
   az ad sp create --id {appId}
 ```
 O id retornado é o ID do Service Principal. Um Service Principal (SP) é uma representação do App Registration no tenant do Azure
-AD. Ele é necessário para atribuir permissões ao aplicativo. O comando cria o SP correspondente ao appId do registro de aplicativo criado anteriormente.
+AD. Ele é necessário para atribuir permissões ao aplicativo. O comando cria o SP correspondente ao appId do App Registration criado anteriormente.
 
 ---
 
