@@ -24,7 +24,7 @@ A aplicação original consiste em uma API para controle da qualidade do ar.
 ---
 
 ### Docker
-* A imagem do backend foi construída através de um Dockerfile e enviada para o [Docker Hub](https://hub.docker.com/repository/docker/igorrrr/air-quality-rest);
+* A imagem do backend foi construída através de um [Dockerfile](https://github.com/igor-u/fiap-air-quality/blob/nosql/Dockerfile) e enviada para o [Docker Hub](https://hub.docker.com/repository/docker/igorrrr/air-quality-rest);
 
 * A imagem de banco de dados será `mongo:latest`.
 
