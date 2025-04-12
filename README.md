@@ -6,7 +6,7 @@
 
 ---
 
-Este projeto dá prosseguimento a este repositório: [fiap-air-quality-plsql](https://github.com/igor-u/fiap-air-quality/tree/plsql).
+Este projeto dá prosseguimento a este repositório: [fiap-air-quality/plsql](https://github.com/igor-u/fiap-air-quality/tree/plsql).
 
 Optei por separar as funcionalidades RESTful das funcionalidades de PL/SQL do primeiro projeto; é possível combinar as funcionalidades, ao executar
 os scripts PL/SQL do primeiro projeto para criação das automatizações do banco de dados.
