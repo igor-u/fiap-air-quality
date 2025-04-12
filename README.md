@@ -33,7 +33,7 @@ Isso permite que essas imagens sejam facilmente acessíveis e utilizadas em dife
 ---
 
 ### Azure
-  A integração do GitHub Actions com o Azure Active Directory (recentemente renomeado para [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)) para automatizar a criação e gerenciamento do cluster Kubernetes envolve a configuração da autenticação e autorização seguras. O método utilizado é o OpenID Connect (OIDC), que permite que o GitHub Actions se autentique no Azure sem a necessidade de armazenar segredos de longa duração diretamente no repositório. Seguem os passos de configuração realizados no Azure:
+  A integração do GitHub Actions com o Azure Active Directory (recentemente renomeado para [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/new-name)) para automatizar a criação e gerenciamento do cluster Kubernetes envolve a configuração da autenticação e autorização seguras. O método utilizado é o OpenID Connect (OIDC), que permite que o GitHub Actions se autentique no Azure sem a necessidade de armazenar *secrets* de longa duração diretamente no repositório. Seguem os passos de configuração realizados no Azure:
 
 ---
 
