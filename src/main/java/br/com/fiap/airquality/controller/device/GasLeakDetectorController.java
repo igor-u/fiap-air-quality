@@ -23,6 +23,7 @@ public class GasLeakDetectorController {
 
     @PostMapping("/gas_leak_detector")
     @Transactional
+    @ResponseStatus(HttpStatus.CREATED)
     public GasLeakDetector create(@RequestBody GasLeakDetector gasLeakDetector) {
         return gasLeakDetectorService.create(gasLeakDetector);
     }
@@ -34,6 +35,7 @@ public class GasLeakDetectorController {
     }
 
     @GetMapping("/gas_leak_detector/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public GasLeakDetector findById(@PathVariable UUID id) {
         return gasLeakDetectorService.findById(id);
     }

@@ -16,18 +16,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @EqualsAndHashCode(callSuper = true)
 public class GasLeakDetector extends Device {
 
-    private Double CO2Ppm;
+    private Double co2Ppm;
 
-    private Double HCPpm;
+    private Double hcPpm;
 
-    private Double CH4Ppm;
+    private Double ch4Ppm;
 
-    private Double COPpm;
+    private Double coPpm;
 
-    private Double N2OPpm;
+    private Double n2oPpm;
 
-    private Double NH3Ppm;
+    private Double nh3Ppm;
 
-    private Double NOPpm;
+    private Double noPpm;
 
 }

@@ -23,6 +23,7 @@ public class AirQualitySensorController {
 
     @PostMapping("/air_quality_sensor")
     @Transactional
+    @ResponseStatus(HttpStatus.CREATED)
     public AirQualitySensor create(@RequestBody AirQualitySensor airQualitySensor) {
         return airQualitySensorService.create(airQualitySensor);
     }
@@ -34,6 +35,7 @@ public class AirQualitySensorController {
     }
 
     @GetMapping("/air_quality_sensor/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public AirQualitySensor findById(@PathVariable UUID id) {
         return airQualitySensorService.findById(id);
     }

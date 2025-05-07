@@ -23,6 +23,7 @@ public class OzoneMonitoringInstrumentController {
 
     @PostMapping("/ozone_monitoring_instrument")
     @Transactional
+    @ResponseStatus(HttpStatus.CREATED)
     public OzoneMonitoringInstrument create(@RequestBody OzoneMonitoringInstrument ozoneMonitoringInstrument) {
         return ozoneMonitoringInstrumentService.create(ozoneMonitoringInstrument);
     }
@@ -34,6 +35,7 @@ public class OzoneMonitoringInstrumentController {
     }
 
     @GetMapping("/ozone_monitoring_instrument/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public OzoneMonitoringInstrument findById(@PathVariable UUID id) {
         return ozoneMonitoringInstrumentService.findById(id);
     }

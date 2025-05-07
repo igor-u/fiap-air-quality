@@ -16,14 +16,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @EqualsAndHashCode(callSuper = true)
 public class AirQualitySensor extends Device {
 
-    private Double AQI;
+    private Double aqi;
 
     private Double temperatureCelsius;
 
     private Double humidityPercentage;
 
-    private Double eCO2Ppm;
+    private Double eco2Ppm;
 
-    private Double TVOCPpb;
+    private Double tvocPpb;
 
 }

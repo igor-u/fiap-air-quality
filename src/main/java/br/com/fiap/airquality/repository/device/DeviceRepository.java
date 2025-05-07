@@ -6,4 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.UUID;
 
 public interface DeviceRepository extends MongoRepository<Device, UUID> {
+
+    Device findByModel(String model);
+
 }
