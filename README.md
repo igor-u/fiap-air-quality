@@ -136,9 +136,49 @@ O workflow criado executa as seguintes etapas principais:
 
 ---
 
+### Execução de Testes com Maven e IntelliJ
+
+Este projeto utiliza Maven para gerenciamento de dependências e execução de testes. As classes de teste são `CucumberIntegrationTest.java` e `MongoRepositoryTest.java`.
+Ambas estão no diretório `/src/test/java/br.com.fiap.airquality/`.
+
+**Execução dos Testes**
+
+Existem duas formas principais de executar os testes neste projeto: utilizando o Maven diretamente ou através da interface do IntelliJ IDEA.
+
+#### 1. Execução com Maven
+
+1.  **Abra o terminal ou prompt de comando:** navegue até o diretório raiz do seu projeto (onde o arquivo `pom.xml` está localizado).
+
+2.  **Execute os testes:** utilize o seguinte comando Maven para executar todas as classes de teste:
+
+    ```
+    mvn test
+    ```
+
+    Este comando irá compilar o projeto, executar os testes definidos e gerar um relatório de resultados.
+
+#### 2. Execução com IntelliJ IDEA
+
+1.  **Abra o projeto no IntelliJ IDEA:** importe o diretório do seu projeto no IntelliJ IDEA (File > Open).
+
+2.  **Navegue até as classes de teste:** localize as classes de teste `CucumberIntegrationTest.java` e `MongoRepositoryTest.java` na estrutura do projeto.
+
+3.  **Execute uma classe de teste individual:**
+    * Clique com o botão direito dentro da classe de teste.
+    * Selecione a opção "Run NomeDaClasseDeTeste".
+
+---
+
 ### Documentação Oficial
+
 [Azure Command-Line Interface (CLI) documentation](https://learn.microsoft.com/en-us/cli/azure)
 
 [Use the Azure Login action with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect)
 
 [UUID as Entity ID in MongoDB](https://www.baeldung.com/java-mongodb-uuid)
+
+[Introduction | Cucumber](https://cucumber.io/docs)
+
+[Gherkin | Cucumber](https://cucumber.io/docs/gherkin)
+
+[Streamlining Java Application Development With MongoDB: A Comprehensive Guide to Using Testcontainers](http://mongodb.com/developer/languages/java/testcontainers-with-java-and-mongodb)
