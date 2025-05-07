@@ -1,7 +1,7 @@
 ## Monitoramento da Qualidade do Ar com NoSQL e Práticas DevOps
 
 <p align="center">
-  <img src="air_quality_nosql.png" alt="Air Quality NoSQL"/>
+  <img src="air_quality_test.png" alt="Air Quality NoSQL"/>
 </p>
 
 ---
