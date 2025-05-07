@@ -53,7 +53,7 @@ Os testes deste projeto foram executados de formas principais: utilizando o Mave
 3.  **Execute cada classe de teste individualmente:**
     * Clique com o botão direito na classe de teste.
     * Selecione a opção "Run NomeDaClasseDeTeste".
-    * 
+
 ---
 
 ### Documentação Oficial
