@@ -50,10 +50,10 @@ Os testes deste projeto foram executados de formas principais: utilizando o Mave
 
 2.  **Navegue até as classes de teste:** localize as classes de teste `CucumberIntegrationTest.java` e `MongoRepositoryTest.java` na estrutura do projeto.
 
-3.  **Execute uma classe de teste individual:**
-    * Clique com o botão direito dentro da classe de teste.
+3.  **Execute cada classe de teste individualmente:**
+    * Clique com o botão direito na classe de teste.
     * Selecione a opção "Run NomeDaClasseDeTeste".
-
+    * 
 ---
 
 ### Documentação Oficial
