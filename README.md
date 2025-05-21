@@ -9,6 +9,12 @@
   Este projeto implementa práticas da cultura DevOps em uma aplicação existente, abrangendo orquestração de contêineres, integração contínua e computação em nuvem.
 A aplicação original consiste em uma API para controle da qualidade do ar.
 
+  O projeto contém 4 branches; elas foram criadas na seguinte ordem, e cada uma possui um propósito:
+  - [plsql](https://github.com/igor-u/fiap-air-quality/tree/plsql);
+  - [relational](https://github.com/igor-u/fiap-air-quality/tree/relational);
+  - [nosql](https://github.com/igor-u/fiap-air-quality/tree/nosql) (atual);
+  - [test](https://github.com/igor-u/fiap-air-quality/tree/test).
+
 ---
 
 ### Ferramentas
