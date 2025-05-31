@@ -107,7 +107,7 @@ Isso permite que o GitHub Actions (representado pelo SP) execute ações como cr
 
 ---
 
-${\color{yellow}\text{Tais comandos criam uma relação de confiança entre o Azure Active Directory (Microsoft Entra ID) e o GitHub Actions.}}$
+*Tais comandos criam uma relação de confiança entre o Azure Active Directory (Microsoft Entra ID) e o GitHub Actions.*
 
 ---
 
